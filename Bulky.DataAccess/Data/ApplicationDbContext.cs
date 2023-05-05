@@ -13,6 +13,8 @@ namespace BulkyBookWeb.Data
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products{ get; set; }
+        public DbSet<Company> Companies{ get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +23,11 @@ namespace BulkyBookWeb.Data
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
                 new Category { Id = 3, Name = "History", DisplayOrder = 3 }
+                );
+            modelBuilder.Entity<Company>().HasData(
+                new Company { Id = 2, Name = "A1 Solutions", StreetAddress = "1-19", City="Hyderabad", State="Telangaana",Postalcode="437723", PhoneNumber="8883706744" },
+                new Company { Id = 3, Name = "N1 Solutions", StreetAddress = "1-23" , City = "Hyderabad", State = "Telangaana", Postalcode = "437723", PhoneNumber = "8803606344" },
+                new Company { Id = 4, Name = "c1 Solutions", StreetAddress = "1-34" , City = "Hyderabad", State = "Telangaana", Postalcode = "437723", PhoneNumber = "8803707344" }
                 );
             modelBuilder.Entity<Product>().HasData(
                 new Product
